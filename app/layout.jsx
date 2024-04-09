@@ -3,6 +3,8 @@ import Nav from '@components/Nav';
 import Provider from '@components/Provider';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ProgressBarProvider from '@components/ProgressBarProvider';
+import { Suspense } from 'react';
 
 export const metadata={
     title:"SubpromptX",
@@ -31,7 +33,12 @@ draggable
 pauseOnHover
 theme="light" 
 />
-              {children}
+<Suspense>
+  <ProgressBarProvider>
+    {children}
+    </ProgressBarProvider>
+    </Suspense>
+              
               </main>
               </Provider>
         </body>
